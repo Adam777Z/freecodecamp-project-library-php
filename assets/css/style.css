@@ -1,0 +1,62 @@
+/* .border {
+	border-style: inset;
+	border-width: 1px;
+	margin: 10px;
+}
+
+#sampleui {
+	max-width: 450px;
+	margin: 2%;
+}
+
+#sampleposting {
+	max-width: 450px;
+	text-align: center;
+	margin: 2%;
+}
+
+#userstories {
+	margin: 2%;
+}
+
+form {
+	padding: 5px;
+} */
+
+.book-item {
+	cursor: pointer;
+	width: fit-content;
+}
+
+.book-item:hover {
+	text-decoration: underline;
+}
+
+.table,
+.table th,
+.table td {
+	border: 1px solid #343a40 !important;
+}
+
+.table th,
+.table td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.table thead th,
+.table thead td {
+	border-bottom-width: 1px;
+}
+
+.table thead th {
+	background-color: #bdc0c0;
+}
+
+.table tbody th {
+	background-color: #dcdcdc;
+}
+
+.table td {
+	background-color: #fff;
+}
