@@ -8,7 +8,7 @@ if ( isset( $_SERVER['PATH_INFO'] ) ) {
 		$path_prefix .= '../';
 	}
 
-	if ( strpos( $_SERVER['PATH_INFO'], '/api' ) !== false ) {
+	if ( strpos( $_SERVER['PATH_INFO'], '/api/books' ) !== false ) {
 		try {
 			$db = new PDO( 'sqlite:database.db' );
 		} catch ( PDOException $e ) {
