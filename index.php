@@ -491,10 +491,10 @@ function delete_books() {
 										<td>delete all books</td>
 									</tr>
 									<tr>
-										<th scope="row"><a href="<?php echo $path_prefix; ?>api/books/1234" target="_blank">/api/books/1234</a></th>
-										<td>show book 1234</td>
-										<td>add comment to 1234</td>
-										<td>delete 1234</td>
+										<th scope="row"><a href="<?php echo $path_prefix; ?>api/books/1" target="_blank">/api/books/1</a></th>
+										<td>show book 1</td>
+										<td>add comment to 1</td>
+										<td>delete 1</td>
 									</tr>
 								</tbody>
 							</table>
