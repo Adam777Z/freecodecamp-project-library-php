@@ -33,12 +33,7 @@ if ( isset( $_SERVER['PATH_INFO'] ) ) {
 
 			if ( $book ) {
 				header( 'Content-Type: application/json; charset=utf-8' );
-				echo json_encode( [
-					'id' => (int) $book_id,
-					'title' => $book['title'],
-					'comments' => $book['comments'],
-					'commentcount' => $book['commentcount'],
-				] );
+				echo json_encode( $book );
 				exit;
 			} else {
 				header( 'Content-Type: application/json; charset=utf-8' );
@@ -71,12 +66,7 @@ if ( isset( $_SERVER['PATH_INFO'] ) ) {
 
 				if ( $book ) {
 					header( 'Content-Type: application/json; charset=utf-8' );
-					echo json_encode( [
-						'id' => (int) $book_id,
-						'title' => $book['title'],
-						'comments' => $book['comments'],
-						'commentcount' => $book['commentcount'],
-					] );
+					echo json_encode( $book );
 					exit;
 				} else {
 					header( 'Content-Type: application/json; charset=utf-8' );
@@ -380,6 +370,7 @@ function get_books() {
 
 	if ( $result ) {
 		foreach ( $result as $key => $value ) {
+			$result[$key]['id'] = (int) $result[$key]['id'];
 			$result[$key]['comments'] = json_decode( $result[$key]['comments'], true );
 			$result[$key]['commentcount'] = count( $result[$key]['comments'] );
 		}
@@ -395,6 +386,7 @@ function get_book( $book_id ) {
 	$result = $query->fetchAll( PDO::FETCH_ASSOC );
 
 	if ( $result ) {
+		$result[0]['id'] = (int) $result[0]['id'];
 		$result[0]['comments'] = json_decode( $result[0]['comments'], true );
 		$result[0]['commentcount'] = count( $result[0]['comments'] );
 	}
