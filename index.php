@@ -126,14 +126,19 @@ if ( isset( $_SERVER['PATH_INFO'] ) ) {
 			$title = $_POST['title'];
 
 			if ( add_book( $title ) ) {
-				header( 'Content-Type: application/json; charset=utf-8' );
-				echo json_encode( [
-					'id' => (int) $db->lastInsertId(),
-					'title' => $title,
-					'comments' => [],
-					'commentcount' => 0,
-				] );
-				exit;
+				$book = get_book( (int) $db->lastInsertId() );
+
+				if ( $book ) {
+					header( 'Content-Type: application/json; charset=utf-8' );
+					echo json_encode( $book );
+					exit;
+				} else {
+					header( 'Content-Type: application/json; charset=utf-8' );
+					echo json_encode( [
+						'error' => 'book not found',
+					] );
+					exit;
+				}
 			} else {
 				header( 'Content-Type: application/json; charset=utf-8' );
 				echo json_encode( [
