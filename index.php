@@ -435,14 +435,16 @@ function delete_book( $id ) {
 		'id' => (int) $id,
 	];
 	$sth = $db->prepare( 'DELETE FROM books WHERE id = :id' );
-	return $sth->execute( $data );
+	$sth->execute( $data );
+	return (bool) $sth->rowCount();
 }
 
 function delete_books() {
 	global $db;
 
 	$sth = $db->prepare( 'DELETE FROM books' );
-	return $sth->execute();
+	$sth->execute();
+	return (bool) $sth->rowCount();
 }
 ?><!DOCTYPE html>
 <html lang="en">
